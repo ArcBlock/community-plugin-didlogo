@@ -9,7 +9,8 @@
             if(res){
               $(ele).text(text.substring(0, 4) + '...' + text.substring(text.length - 4));
             }
-            return text.length === 35;
+
+            return res;
           });
       
       $usernames.prepend('<i class="icon-did-abt-logo" style="font-size: inherit; color: inherit; margin-right: 4px;"></i>');
