@@ -1,0 +1,18 @@
+<link rel="stylesheet" type="text/css" href="https://arcblockcn.oss-cn-beijing.aliyuncs.com/did-logo/style.css" />
+<script type="text/discourse-plugin" version="0.0.1">
+  api.onPageChange((url, title) => {
+    $(document).ajaxComplete(function() {
+      var $usernames = $('span.username:not(:has("i")) a')
+          .filter(function(_, ele) {
+            var text = $(ele).text();
+            var res = text.length === 35;
+            if(res){
+              $(ele).text(text.substring(0, 4) + '...' + text.substring(text.length - 4));
+            }
+            return text.length === 35;
+          });
+      
+      $usernames.prepend('<i class="icon-did-abt-logo" style="font-size: inherit; color: inherit; margin-right: 4px;"></i>');
+    });
+  });
+</script>
